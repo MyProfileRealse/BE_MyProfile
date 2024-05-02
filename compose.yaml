@@ -1,0 +1,13 @@
+services:
+  server:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    volumes:
+      - .:/app
+    env_file: ./.env
+    command: yarn run start:dev
+    ports:
+      - '${PORT}:3000'
+    extra_hosts:
+      - host.docker.internal:host-gateway
